@@ -1,0 +1,62 @@
+   / / +-------+ +-------+ +-------+ \ \
+  / /  | +-----+ +--+ +--+ +--+ +--+  \ \
+ / /   | |          | |       | |      \ \ 
+/ /    | | +---+    | |       | |       \ \
+\ \    | | +-+ |    | |       | |       / /	+--.  +--.
+ \ \   | |   | |    | |       | |      / /      |   | |___}
+  \ \  | +---+ | +--+ +--+    | |     / /   /\  |   | |   }
+   \ \ +-------+ +-------+    +-+    / /    \/  +--'  +---'  2022
+   
+# Official Documentation
+General Git Docs -> https://git-scm.com/
+GitHub SSH Docs  -> https://docs.github.com/en/authentication/connecting-to-github-with-ssh
+GitLab SSH Doce  -> https://docs.gitlab.com/ee/ssh/
+
+# Initial Setup for you the user
+git config --global user.name "Dan Bauer"
+git config --global user.email "daniel.bauer@ravenind.com"
+
+# Clone repo
+# recursive flag may not be necessary but safer to include than to not
+# set up ssh with github/gitlab. Both have a walkthrough on how to set up
+# obviously you would use the company git repo
+git clone https://github.com/dbaues/dbaues.dev.git 
+
+# branch manipulation
+git checkout -b new-branch-name        # Creates new branch and checks it out
+git rebase master		       # Rebases your current checkedout branch onto the specified branch (master in this case)
+git pull origin branch-name	       # pulls the remote changes
+git branch -d branch-name	       # deletes specified branch (cannot be currently checked out)
+git branch -D branch-name	       # force deletes specified branch ( ^ )
+git branch -m new-branch-name	       # renames checked out branck to specified new branch name
+
+# committing changes
+git commit		               # commits staged changes to branch and promts for commit message
+git commit -m "Commit Message"         # commits staged changes to branch with specified commit message 
+git commit --amend		       # adds any staged changes to previous and prompts for commit message
+git commit --amend --no-edit           # adds any staged changes to previous commit without changing commit message
+git push origin branch-name	       # pushes local commits to specified remote branch
+
+# misc.
+git stash			       # stashes all non committed changes in working directory
+git cherry-pick sha256		       # places the specified commit using sha256 hash identifier onto working branch
+git reset --soft HEAD~1		       # decommits previous commit. Changes in previous commit revert to staged status
+git fetch branch-name		       # checks for any updates to specified remote branch (not super relevant)
+git pull origin branch-name	       # cehck and pull any changes from the specified remote branch to local branch
+
+# Git VSCode Extensions
+ - GitLens
+ - Github / Gitlab proprietary
+ - Git Graph
+ 
+# Notes
+ - Use ssh for ease and security
+ - GitLab and GitHub both have instructions on how to set this up
+ - Always create a new branch for a new feature
+ - Maintain a local main/master/preview branch that you don't change but is kept as close to parallel as possible
+ - Pull main/master/preview before checking out a new branch so as to get the most up to date
+ - Create a new branch off of main/master/preview to start working
+ - Once finished with feature XYZ, pull main/master/preview again and rebase if needed
+ - Push local branch for XYZ to main/master/preview
+ - Create merge request
+ - Create new branch off of main/master/preview for next feature ABC 
