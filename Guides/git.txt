@@ -2,20 +2,20 @@
   / /  | +-----+ +--+ +--+ +--+ +--+  \ \
  / /   | |          | |       | |      \ \
 / /    | | +---+    | |       | |       \ \
-\ \    | | +-+ |    | |       | |       / /		  +--.  +--.
+\ \    | | +-+ |    | |       | |       / /     +--.  +--.
  \ \   | |   | |    | |       | |      / / 	    |   | |___}
   \ \  | +---+ | +--+ +--+    | |     / /   /\  |   | |   }
    \ \ +-------+ +-------+    +-+    / /    \/  +--'  +---'  2022
 
 # Documentation
 General Git Docs    -> https://git-scm.com/
-Github cheat sheet	-> https://education.github.com/git-cheat-sheet-education.pdf
-GitHub SSH Docs  	  -> https://docs.github.com/en/authentication/connecting-to-github-with-ssh
-GitLab SSH Docs  	  -> https://docs.gitlab.com/ee/ssh/
+Github cheat sheet  -> https://education.github.com/git-cheat-sheet-education.pdf
+GitHub SSH Docs     -> https://docs.github.com/en/authentication/connecting-to-github-with-ssh
+GitLab SSH Docs     -> https://docs.gitlab.com/ee/ssh/
 Git under the hood  -> https://github.blog/2020-12-17-commits-are-snapshots-not-diffs/
 Git commit message  -> https://cbea.ms/git-commit/
-Git branch naming	  -> https://deepsource.io/blog/git-branch-naming-conventions/
-Git on WSL		    	-> https://docs.microsoft.com/en-us/windows/wsl/tutorials/wsl-git
+Git branch naming   -> https://deepsource.io/blog/git-branch-naming-conventions/
+Git on WSL          -> https://docs.microsoft.com/en-us/windows/wsl/tutorials/wsl-git
 
 
 # Initial Setup for you the user
@@ -29,44 +29,44 @@ git config --global user.email "daniel.bauer@ravenind.com"
 # set up ssh with github/gitlab. Both have a walk through on how to set up
 # obviously you would use the company git repo
 git clone https://github.com/dbaues/dbaues.docs.git
-git init									# Initializes a new repository in the current working directory
+git init        # Initializes a new repository in the current working directory
 
 
 # branch manipulation
-git checkout -b <new-branch-name> 	  # Creates new branch and checks it out
-git branch <new-branch-name					  # Creates new branch
-git rebase <master>							      # Rebases your current checked-out branch onto the specified branch (master in this case)
-git pull origin <branch-name>				  # pulls the remote changes
-git branch -d <branch-name>					  # deletes specified branch (cannot be currently checked out)
-git branch -D <branch-name>					  # force deletes specified branch ( ^ )
-git branch -m <new-branch-name>			  # renames checked out branch to specified new branch name
+git checkout -b <new-branch-name>     # Creates new branch and checks it out
+git branch <new-branch-name           # Creates new branch
+git rebase <master>                   # Rebases your current checked-out branch onto the specified branch (master in this case)
+git pull origin <branch-name>         # pulls the remote changes
+git branch -d <branch-name>           # deletes specified branch (cannot be currently checked out)
+git branch -D <branch-name>           # force deletes specified branch ( ^ )
+git branch -m <new-branch-name>       # renames checked out branch to specified new branch name
 
 
 # committing changes
-git add .									            # stages all current modified files for next commit
-git commit									          # commits staged changes to branch and prompts for commit message
-git commit -m "Commit Message" 				# commits staged changes to branch with specified commit message
-git commit --amend							      # adds any staged changes to previous and prompts for commit message
-git commit --amend --no-edit				  # adds any staged changes to previous commit without changing commit message
-git push origin <branch-name>				  # pushes local commits to specified remote branch
-git push origin <branch-name> -f 			# force pushes the local commit to remote branch (be careful with this one)
-git push origin <branch-name> --force	# ^ same as above
+git add .                             # stages all current modified files for next commit
+git commit                            # commits staged changes to branch and prompts for commit message
+git commit -m "Commit Message"        # commits staged changes to branch with specified commit message
+git commit --amend                    # adds any staged changes to previous and prompts for commit message
+git commit --amend --no-edit          # adds any staged changes to previous commit without changing commit message
+git push origin <branch-name>         # pushes local commits to specified remote branch
+git push origin <branch-name> -f      # force pushes the local commit to remote branch (be careful with this one)
+git push origin <branch-name> --force # ^ same as above
 
 
 # misc.
-git log										                  # view the git history
-git log --all --decorate --oneline --graph	# prettier git log (can be aliased to git lg)
-git lg										                  # often used as an alias for a formatted log (may not be implemented, see later)
-git stash									                  # stashes all non committed changes in working directory
-git cherry-pick <sha256>					          # places the specified commit using sha256 hash identifier onto working branch
-git reset HEAD~ --hard						          # reverts to HEAD
-git reset --soft HEAD~1						          # decommits previous commit. Changes in previous commit revert to staged status
-git reset <file>							              # unstages specified file but maintains changes
-git fetch <branch-name>						          # checks for any updates to specified remote branch (not super relevant)
-git pull origin <branch-name>				        # check and pull any changes from the specified remote branch to local branch
-git diff <branch-or-sha256> <second>		    # shows the differences between the specified branch HEAD commit and the other
-git status									                # view the currently staged files as well as other modified/added files
-git diff									                  # shows the difference of the uncommitted code
+git log                                     # view the git history
+git log --all --decorate --oneline --graph  # prettier git log (can be aliased to git lg)
+git lg                                      # often used as an alias for a formatted log (may not be implemented, see later)
+git stash                                   # stashes all non committed changes in working directory
+git cherry-pick <sha256>                    # places the specified commit using sha256 hash identifier onto working branch
+git reset HEAD~ --hard                      # reverts to HEAD
+git reset --soft HEAD~1                     # decommits previous commit. Changes in previous commit revert to staged status
+git reset <file>                            # unstages specified file but maintains changes
+git fetch <branch-name>                     # checks for any updates to specified remote branch (not super relevant)
+git pull origin <branch-name>               # check and pull any changes from the specified remote branch to local branch
+git diff <branch-or-sha256> <second>        # shows the differences between the specified branch HEAD commit and the other
+git status                                  # view the currently staged files as well as other modified/added files
+git diff                                    # shows the difference of the uncommitted code
 
 
 
