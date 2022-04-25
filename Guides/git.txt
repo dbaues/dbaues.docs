@@ -1,0 +1,145 @@
+   / / +-------+ +-------+ +-------+ \ \
+  / /  | +-----+ +--+ +--+ +--+ +--+  \ \
+ / /   | |          | |       | |      \ \
+/ /    | | +---+    | |       | |       \ \
+\ \    | | +-+ |    | |       | |       / /		  +--.  +--.
+ \ \   | |   | |    | |       | |      / / 	    |   | |___}
+  \ \  | +---+ | +--+ +--+    | |     / /   /\  |   | |   }
+   \ \ +-------+ +-------+    +-+    / /    \/  +--'  +---'  2022
+
+# Documentation
+General Git Docs    -> https://git-scm.com/
+Github cheat sheet	-> https://education.github.com/git-cheat-sheet-education.pdf
+GitHub SSH Docs  	  -> https://docs.github.com/en/authentication/connecting-to-github-with-ssh
+GitLab SSH Docs  	  -> https://docs.gitlab.com/ee/ssh/
+Git under the hood  -> https://github.blog/2020-12-17-commits-are-snapshots-not-diffs/
+Git commit message  -> https://cbea.ms/git-commit/
+Git branch naming	  -> https://deepsource.io/blog/git-branch-naming-conventions/
+Git on WSL		    	-> https://docs.microsoft.com/en-us/windows/wsl/tutorials/wsl-git
+
+
+# Initial Setup for you the user
+git config --global user.name "Dan Bauer"
+git config --global user.email "daniel.bauer@ravenind.com"
+ - See .gitconfig below
+
+
+# Clone repo
+# recursive flag may not be necessary but safer to include than to not
+# set up ssh with github/gitlab. Both have a walk through on how to set up
+# obviously you would use the company git repo
+git clone https://github.com/dbaues/dbaues.docs.git
+git init									# Initializes a new repository in the current working directory
+
+
+# branch manipulation
+git checkout -b <new-branch-name> 	  # Creates new branch and checks it out
+git branch <new-branch-name					  # Creates new branch
+git rebase <master>							      # Rebases your current checked-out branch onto the specified branch (master in this case)
+git pull origin <branch-name>				  # pulls the remote changes
+git branch -d <branch-name>					  # deletes specified branch (cannot be currently checked out)
+git branch -D <branch-name>					  # force deletes specified branch ( ^ )
+git branch -m <new-branch-name>			  # renames checked out branch to specified new branch name
+
+
+# committing changes
+git add .									            # stages all current modified files for next commit
+git commit									          # commits staged changes to branch and prompts for commit message
+git commit -m "Commit Message" 				# commits staged changes to branch with specified commit message
+git commit --amend							      # adds any staged changes to previous and prompts for commit message
+git commit --amend --no-edit				  # adds any staged changes to previous commit without changing commit message
+git push origin <branch-name>				  # pushes local commits to specified remote branch
+git push origin <branch-name> -f 			# force pushes the local commit to remote branch (be careful with this one)
+git push origin <branch-name> --force	# ^ same as above
+
+
+# misc.
+git log										                  # view the git history
+git log --all --decorate --oneline --graph	# prettier git log (can be aliased to git lg)
+git lg										                  # often used as an alias for a formatted log (may not be implemented, see later)
+git stash									                  # stashes all non committed changes in working directory
+git cherry-pick <sha256>					          # places the specified commit using sha256 hash identifier onto working branch
+git reset HEAD~ --hard						          # reverts to HEAD
+git reset --soft HEAD~1						          # decommits previous commit. Changes in previous commit revert to staged status
+git reset <file>							              # unstages specified file but maintains changes
+git fetch <branch-name>						          # checks for any updates to specified remote branch (not super relevant)
+git pull origin <branch-name>				        # check and pull any changes from the specified remote branch to local branch
+git diff <branch-or-sha256> <second>		    # shows the differences between the specified branch HEAD commit and the other
+git status									                # view the currently staged files as well as other modified/added files
+git diff									                  # shows the difference of the uncommitted code
+
+
+
+# HEAD
+ - HEAD is like a pointer to the HEAD or front of a branch
+ - When you rebase a branch onto another, you are moving the head and back applying some commits
+ - When resetting with HEAD pointer, [ HEAD~n ] n is the number of commits back you would like to go
+ - If performing a reset with multiple commits, try to maintain the changes by using the --soft flag
+ - The --hard flag removes the changes whereas the --soft flag decommits them
+
+
+# Git VSCode Extensions
+ - GitLens
+ - Github / Gitlab proprietary
+ - Git Graph
+
+
+# Notes
+ - Use ssh for ease and security
+ - GitLab and GitHub both have instructions on how to set this up
+ - Always create a new branch for a new feature
+ - Maintain a local main/master/preview branch that you don't change but is kept as close to parallel as possible
+ - Pull main/master/preview before checking out a new branch so as to get the most up to date
+ - Create a new branch off of main/master/preview to start working
+ - Once finished with feature XYZ, pull main/master/preview again and rebase if needed
+ - Push local branch for XYZ to main/master/preview
+ - Create merge request
+ - Create new branch off of main/master/preview for next feature ABC
+ - If working across Linux environments and Windows environments, keep file line endings in mind
+   * Linux: 	LF
+   * Windows: 	CRLF
+   * MacOS:		CR [only on older MacOS]
+ - To prevent line ending conversion errors, consider adding a .gitattributes file or set it globally
+ - With WSL, you will need to install git on each distro you intend to use it with (hopefully all of them)
+
+
+# Conventions
+ - There are some conventions to git such as writing commit messages in the imperative
+ - Examples of such conventions can be found here https://cbea.ms/git-commit/
+ - Key commit message conventions include...
+   * Capitalize Subject line, do not end with a period, and limit to 50 characters
+   * Use the imperative perspective for subject
+   * Leave 1 blank line between subject and body
+   * Wrap body at 72 characters
+   * Body should explain what and why
+ - For branch naming, use and issue identifier if available
+ - It is recommended that if you need to use more then use an actionable description
+   * I like to use a simple 1-2 words that summarize the change goal
+ - Examples of branch conventions can be found here https://deepsource.io/blog/git-branch-naming-conventions/
+ - Key stylistic convention for branch naming...
+   * Use hyphens/dash to separate words
+
+
+# .gitconfig
+ - Certain settings that you would like global such as name or alias can be set here
+ - If you used the initial setup steps listed above, they should show up here as well
+
+   Sample .gitconfig file:
+   """
+	[user]
+		name = Dan Bauer
+		email = daniel.bauer@ravenind.com
+	[alias]
+		adog = log --all --decorate --oneline --graph
+		lg1 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
+		lg2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
+		lg3 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset) %C(bold cyan)(committed: %cD)%C(reset) %C(auto)%d%C(reset)%n''          %C(white)%s%C(reset)%n''          %C(dim white)- %an <%ae> %C(reset) %C(dim white)(committer: %cn <%ce>)%C(reset)'
+		lg = !"git lg1"
+   """
+
+ - The aliases listed are all for logging. They provide prettier logs than what git log provides standard
+ - The .gitconfig file can generally be found in the user's home directory
+   * C:/Users/<user>/.gitconfig 	# Windows
+   * ~/.gitconfig					# WSL/Linux
+ - For WSL users, the WSL git global scope is not the same as the Windows global scope
+   * For consistency, ensure both .gitconfig files in the places listed above are similar
