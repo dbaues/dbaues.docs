@@ -1,11 +1,11 @@
-   / / +-------+ +-------+ +-------+ \ \
+       +-------+ +-------+ +-------+
   / /  | +-----+ +--+ +--+ +--+ +--+  \ \
  / /   | |          | |       | |      \ \
 / /    | | +---+    | |       | |       \ \
 \ \    | | +-+ |    | |       | |       / /     +--.  +--.
  \ \   | |   | |    | |       | |      / / 	    |   | |___}
   \ \  | +---+ | +--+ +--+    | |     / /   /\  |   | |   }
-   \ \ +-------+ +-------+    +-+    / /    \/  +--'  +---'  2022
+       +-------+ +-------+    +-+           \/  +--'  +---'  2022
 
 # Documentation
 General Git Docs    -> https://git-scm.com/
@@ -143,3 +143,15 @@ git diff                                    # shows the difference of the uncomm
    * ~/.gitconfig					# WSL/Linux
  - For WSL users, the WSL git global scope is not the same as the Windows global scope
    * For consistency, ensure both .gitconfig files in the places listed above are similar
+
+
+               / / +-------+ +-------+ +-------+
+  / /         / /  | +-----+ +--+ +--+ +--+ +--+  \ \
+ / /         / /   | |          | |       | |      \ \
+/ /         / /    | | +---+    | |       | |       \ \
+\ \        / /     | | +-+ |    | |       | |       / /
+ \ \      / /      | |   | |    | |       | |      / /
+  \ \    / /       | +---+ | +--+ +--+    | |     / /
+        / /        +-------+ +-------+    +-+
+
+<GIT> Dan Bauer - 2022 </GIT>
