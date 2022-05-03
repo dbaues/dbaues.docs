@@ -30,6 +30,7 @@ git config --global user.email "daniel.bauer@ravenind.com"
 # obviously you would use the company git repo
 git clone https://github.com/dbaues/dbaues.docs.git
 git init        # Initializes a new repository in the current working directory
+git remote add origin <URL>           # Adds specified remote repo as the remote/origin
 
 
 # branch manipulation
