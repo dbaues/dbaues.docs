@@ -1,0 +1,79 @@
+* { /* Browser Reset */
+    font-family: 'Comfortaa', cursive;
+    margin: 0;
+    padding: 0;
+    color: white;
+}
+
+/********** HEADER *****************/
+header {
+    height: 80px;
+    position: sticky;
+    top: 0;
+    left: 0;
+    background: rgb(30,30,30);
+    z-index: 11;
+}
+header div {
+    padding: 20px;
+    position: relative;
+}
+header a {
+    text-decoration: none;
+}
+header a h2 {
+    font-size: 35px;
+    color: whitesmoke;
+    display: inline;
+}
+header a h2 span {
+    color: rgb(130,130,130);
+}
+#header-extension {
+    font-size: 20px;
+    color: whitesmoke;
+}
+
+/******** FOOTER *******************/
+footer {
+    padding: 10px;
+    height: 80px;
+    background: rgb(30,30,30);
+    z-index: 11;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(130,130,130);
+    height: 50px;
+    position: relative;
+}
+.footer {
+    width: 400px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.footer-element {
+    margin: 0 auto;
+}
+.footer-element nav {
+    border-radius: 5px;
+    border: 2px solid whitesmoke;
+    padding: 3px;
+    transition: .15s linear;
+}
+.footer-element nav:hover {
+    border: 2px solid rgb(60,60,60);
+    transition: .15s linear;
+}
+.footer-flex-item {
+    padding: 5px;
+}
+footer p {
+    color: black;
+    text-align: center;
+}
+footer a {
+    color: whitesmoke;
+    text-decoration: none;
+}
