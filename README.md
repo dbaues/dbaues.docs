@@ -10,7 +10,7 @@ This repo will house various guides and documentation pieces authored by me, Dan
 -->
 
 
-In the future, many guides will have front facing pages on [dbaues.dev](https://dbaues.dev)
+In the future, many guides will have front facing pages on [dbaues.dev](https://dbaues.dev)  
 Currently, the pages can be viewed at [dbaues.github.io/dbaues.docs](https://dbaues.github.io/dbaues.docs)
 
 Dan Bauer - 2022
