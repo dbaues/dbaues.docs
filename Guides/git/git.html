@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>git.txt</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="../web/css/header-footer.css">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Comfortaa&family=Montserrat&display=swap" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/7e7e7d9138.js" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+        <style>
+            /******** git.txt ******************/
+            section.a {
+                /* TODO: Make this more dynamic to the document */
+                height: 2480px;
+            }
+            .git-txt-wrapper {
+                position: relative;
+                text-align: center;
+                height: 100%;
+            }
+            object {
+                overflow: scroll;
+                width: 80%;
+                height: 100%;
+            }
+            aside {
+                border-radius: 0 10px 10px 0;
+                background-color: rgb(180,180,180);
+                position: absolute;
+                width: 40px;
+                height: 40px;
+                top: 40px;
+                left: 90%;
+            }
+            #sidebar {
+                position: absolute;
+                width: 300px;
+                height: 200px;
+                top: 120px;
+                left: -270px;
+                transition: .5s ease-in;
+            }
+            #sidebar:hover {
+                transform: translateX(270px);
+                transition: .5s ease-in-out;
+            }
+            .links {
+                border-radius: 0 10px 10px 0;
+                height: 100%;
+                width: 90%;
+                background-color: rgb(130,130,130);
+                text-align: left;
+            }
+            .links ul {
+                padding: 10px;
+            }
+            .links ul li {
+                list-style: none;
+                padding: 2px;
+            }
+            .links ul li a {
+                text-decoration: none;
+            }
+            .links ul li a:hover {
+                color: rgb(200,200,200)
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <div>
+                <a href="https://dbaues.dev/" target="_blank">
+                    <h2>dan<span>bauer</span><span id="header-extension">.docs</span></h2>
+                </a>
+            </div>
+        </header>
+        <section class="a">
+            <div class="a git-txt-wrapper">
+                <object data="./git.txt" type="text/plain">
+                    <a href="./git.txt">No Support</a>
+                </object>
+                <div class="debug" id="sidebar">
+                    <aside><!-- Insert font awesome icon here --></aside>
+                    <div class="a links">
+                        <ul id="git-docs-links"></ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer>
+            <div class="footer">
+                <div class="footer-element">
+                    <nav class="footer-flex-item">
+                        <a href="../index.html">Go back</a>
+                    </nav>
+                </div>
+                <div class="footer-element">
+                    <div class="footer-flex-item">
+                        <p>Dan Bauer - 2022</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <script type="text/javascript" src="../web/js/git.js"></script>
+        <script>
+            $(document).ready(() => {
+                $.get('./git.txt', (data) => {
+                    appendLinks(dictify(getLinks(data)));
+                });
+            });
+        </script>
+    </body>
+</html>

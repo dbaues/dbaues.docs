@@ -2,13 +2,119 @@
 <html>
     <head>
         <title>dbaues.docs</title>
+        <title>git.txt</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="../web/css/header-footer.css">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Comfortaa&family=Montserrat&display=swap" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/7e7e7d9138.js" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+        <style>
+            section > * {
+                font-family: 'Montserrat';
+                color: black;
+            }
+            main {
+                text-align: center;
+                padding: 10px 0;
+            }
+            section {
+                text-align: left;
+                width: 80%;
+                margin: 0 auto;
+            }
+            h1.a {
+                font-size: 300%;
+                font-family: 'Montserrat';
+                color: rgb(30,30,30);
+            }
+            h4.a {
+                color: rgb(120,120,120);
+            }
+            p.a {
+                font-size: 120%;
+            }
+            .flex-title {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+            }
+            .flex-item {
+                background-color: rgb(255,255,255);
+            }
+            .flex-lower {
+                transition: .5s ease-in-out;
+                transform: translateX(-100%);
+                z-index: -1;
+            }
+            .flex-title:hover .flex-lower {
+                transform: translateX(0);
+                transition: .5s ease-out;
+            }
+            .link-item {
+                border-radius: 15px;
+                background: linear-gradient(.25turn, rgb(120,120,120), rgb(180,180,180));
+                padding: 20px;
+                width: 75%;
+                margin: 0 auto;
+                text-align: left;
+            }
+            .link-item a {
+                color: rgb(230,230,230);
+            }
+            /******* FOOTER OVERRIDES **********/
+            footer {
+                position: absolute;
+                background-color: rgb(230,230,230);
+                bottom: 0;
+                padding: 0;
+                width: 100%;
+                color: black;
+            }
+        </style>
     </head>
     <body>
-        <h2>dbaues.docs</h2>
-        <ul>
-            <li>
-                <a href="Guides/git.html">git.txt</a>
-            </li>
-        </ul>
+        <header>
+            <div>
+                <a href="https://dbaues.dev/docs" target="_blank">
+                    <h2>dan<span>bauer</span><span id="header-extension">.docs</span></h2>
+                </a>
+            </div>
+        </header>
+        <main>
+            <section class="a">
+                <br>
+                <div class="a frame">
+                    <div class="a flex-title">
+                        <div class="a flex-item flex-upper">
+                            <h1 class="a">Hello There!</h1>
+                        </div>
+                        <div class="a flex-item flex-lower">
+                            <h4 class="a">> General Kenobi</h4>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <p class="a">Below are links to a web based view of my guides</p>
+                <br>
+            </section>
+            <nav class="b">
+                <ul id="#guides">
+                    <li>
+                        <div class="b link-item">
+                            <a href="Guides/git.html">git.txt</a>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </main>
+        <footer>
+            Dan Bauer - 2022
+        </footer>
     </body>
 </html>
