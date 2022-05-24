@@ -16,6 +16,7 @@ Git under the hood  -> https://github.blog/2020-12-17-commits-are-snapshots-not-
 Git commit message  -> https://cbea.ms/git-commit/
 Git branch naming   -> https://deepsource.io/blog/git-branch-naming-conventions/
 Git on WSL          -> https://docs.microsoft.com/en-us/windows/wsl/tutorials/wsl-git
+Oh shit, Git        -> https://ohshitgit.com/
 
 
 # Initial Setup for you the user
