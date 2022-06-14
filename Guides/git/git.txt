@@ -34,13 +34,15 @@ git remote add origin <URL>           # Adds specified remote repo as the remote
 
 
 # branch manipulation
-git checkout -b <new-branch-name>     # Creates new branch and checks it out
-git branch <new-branch-name           # Creates new branch
-git rebase <master>                   # Rebases your current checked-out branch onto the specified branch (master in this case)
-git pull origin <branch-name>         # pulls the remote changes
-git branch -d <branch-name>           # deletes specified branch (cannot be currently checked out)
-git branch -D <branch-name>           # force deletes specified branch ( ^ )
-git branch -m <new-branch-name>       # renames checked out branch to specified new branch name
+git checkout -b <new-branch-name>          # Creates new branch and checks it out
+git branch <new-branch-name                # Creates new branch
+git rebase <master>                        # Rebases your current checked-out branch onto the specified branch (master in this case)
+git pull origin <branch-name>              # pulls the remote changes
+git branch -d <branch-name>                # deletes specified branch (cannot be currently checked out)
+git branch -D <branch-name>                # force deletes specified branch ( ^ )
+git branch -m <new-branch-name>            # renames checked out branch to specified new branch name
+git checkout <sha256>                      # Detach HEAD and move it to specified commit
+git checkout -b <new-branch-name> <sha256> # Checks out a branch at a specified commit hash
 
 
 # committing changes
